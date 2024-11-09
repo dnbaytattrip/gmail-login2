@@ -25,6 +25,8 @@ function Home({ adminId, posterId }) {
             width: "100%",
             height: "100%",
             margin: 0,
+            filter: "blur(4px)",
+            WebkitFilter: "blur(4px)",
             overflow: "hidden",
             zIndex: -1,
             backgroundColor: "gray",
