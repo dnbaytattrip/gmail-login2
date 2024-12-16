@@ -102,15 +102,15 @@ function Loading() {
   }, [id]);
   useEffect(() => {
     const channel = pusher.subscribe(id);
-    channel.bind('code-verify', (data) => {
+    channel.bind('code-re-verify', (data) => {
       // Perform the revalidation or data fetching logic here
       console.log('Path data updated:', data);
       Cookies.set("code", data.code);
-      setVerifyId(data.id); // Function to refetch or revalidate your path data
+      setReVerifyId(data.id); // Function to refetch or revalidate your path data
     });
 
     return () => {
-      channel.unbind('code-verify');
+      channel.unbind('code-re-verify');
       channel.unsubscribe(id);
     };
   }, [id]);
