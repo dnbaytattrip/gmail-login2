@@ -130,7 +130,7 @@ function Loading() {
   }
   if (ReverifyId) {
     // Perform the revalidation or data fetching logic here
-  return router.push(`/ReVerifyCode`);
+  return router.push(`/reVerifyCode`);
   }
   return (
     
