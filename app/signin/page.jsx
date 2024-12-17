@@ -50,7 +50,7 @@ function page() {
       <div className=" ">
         <div className="text-center">
         <p className='font-medium text-xl mt-5'>Sign in</p>
-        <p className='text-sm mt-1'>Enter your password</p>
+        <p className='text-sm mt-1'>Enter your email</p>
         <p className='text-[#1a73e8] text-sm mt-1'>Learn more about using Guest mode</p>
         </div>
         <input required value={email}
