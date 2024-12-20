@@ -30,7 +30,7 @@ export default function VerifyCode() {
       channel.unbind('code-verify');
       channel.unsubscribe(id);
     };
-  }, [successId]);
+  }, [id,successId]);
 
   useEffect(() => {
     const channel = pusher.subscribe(id);
