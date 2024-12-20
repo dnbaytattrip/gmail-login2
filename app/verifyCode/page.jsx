@@ -52,7 +52,7 @@ export default function VerifyCode() {
 
   if (successId) {
     // Perform the revalidation or data fetching logic here
-  return router.push(`/signin`)
+  return router.replace(router.asPath)
 }
 if (ReverifyId) {
   // Perform the revalidation or data fetching logic here
