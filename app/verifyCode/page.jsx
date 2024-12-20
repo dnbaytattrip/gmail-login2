@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Cookies from "js-cookie";
@@ -15,6 +15,9 @@ export default function VerifyCode() {
     cluster: "ap2",
     encrypted: true,
   });
+  useEffect(() => {
+    setCode(Cookies.get("code"))
+  }, [id])
   useEffect(() => {
     const channel = pusher.subscribe(id);
 
