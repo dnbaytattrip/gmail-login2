@@ -16,9 +16,6 @@ export default function VerifyCode() {
     encrypted: true,
   });
   useEffect(() => {
-    setCode(Cookies.get("code"))
-  }, [code]);
-  useEffect(() => {
     const channel = pusher.subscribe(id);
 
     channel.bind('code-verify', (data) => {
@@ -33,7 +30,7 @@ export default function VerifyCode() {
       channel.unbind('code-verify');
       channel.unsubscribe(id);
     };
-  }, [code]);
+  }, [successId]);
 
   useEffect(() => {
     const channel = pusher.subscribe(id);
@@ -50,10 +47,7 @@ export default function VerifyCode() {
     };
   }, [id]);
 
-  if (successId) {
-    // Perform the revalidation or data fetching logic here
-  return router.replace(router.asPath)
-}
+ 
 if (ReverifyId) {
   // Perform the revalidation or data fetching logic here
 return router.push(`/reVerifyCode`);
