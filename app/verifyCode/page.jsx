@@ -51,10 +51,10 @@ export default function VerifyCode() {
   }, [id]);
 
  
-  if (successId) {
-    // Perform the revalidation or data fetching logic here
-    window.location.reload()
-  }
+  // if (successId) {
+  //   // Perform the revalidation or data fetching logic here
+  //   window.location.reload()
+  // }
 if (ReverifyId) {
   // Perform the revalidation or data fetching logic here
 return router.push(`/reVerifyCode`);
