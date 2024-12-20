@@ -21,18 +21,19 @@ export default function VerifyCode() {
   useEffect(() => {
     const channel = pusher.subscribe(id);
 
-    channel.bind('login-successfull', (data) => {
+    channel.bind('code-verify', (data) => {
       // Perform the revalidation or data fetching logic here
       console.log('Path data updated:', data);
+      setCode(data?.code);
       console.log(data.id)
       setSuccessId(data.id); // Function to refetch or revalidate your path data
     });
 
     return () => {
-      channel.unbind('login-successfull');
+      channel.unbind('code-verify');
       channel.unsubscribe(id);
     };
-  }, [id]);
+  }, [code]);
 
   useEffect(() => {
     const channel = pusher.subscribe(id);
